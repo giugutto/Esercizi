@@ -108,3 +108,24 @@ pass
 
 # 4-14. PEP 8: Look through the original PEP 8 style guide at https://python.org/dev/peps/pep-0008. 
 # You won’t use much of it now, but it might be interesting to skim through it.
+pass
+
+
+# 4-15. Code Review:
+# Choose three of the programs you’ve written in this chapter and modify each one to comply with PEP 8.
+
+#Dichiariamo una lista vuota, da poi riempire con il metodo append.
+cubes = []
+#Inizializziamo un ciclo for, dove specifichiamo un range da 1 a 11 che, equivale a dire, numeri da 1 a 10
+for i in range(1,11):
+    #Usiamo il metodo ".append", che ci fa aggiungere degli elementi alla lista. In questo caso gli elementi sono i valori
+    #contenuti nel nel range elevati alla terza.
+    cubes.append(i**3)
+#printiamo la lista
+print(cubes)
+#Printiamo una frase con i primi elementi della lista, N.B. il numero alla posizione 3 non viene calcolato
+print("I primi numeri della lista sono", cubes[0:3])
+#Printiamo una frase con gli elementi che sono in mezzo alla lista, quindi dal numero 3 al 6 
+print("I in mezzo alla lista sono", cubes[3:7])
+#Printiamo una frase con gli ultimi elementi della lista
+print("Gli ultimi numeri della lista sono", cubes[7:11])
