@@ -352,4 +352,28 @@ for i in new_user:
 # Use an if-elif-else chain inside the loop to print the proper ordinal ending for each number.
 # Your output should read "1st 2nd 3rd 4th 5th 6th 7th 8th 9th", and each result should be on a separate line.
 
+ordinal_numbers: list = [1,2,3,4,5,6,7,8,9]
+
+for i in ordinal_numbers:
+    if i == 1:
+        print("1st")
+    elif i == 2:
+        print("\n2nd")
+    elif i == 3:
+        print("\n3rd")
+    elif i == 4:
+        print("\n4th")
+    elif i == 5:
+        print("\n5th")
+    elif i == 6:
+        print("\n6th")
+    elif i == 7:
+        print("\n7th")
+    elif i == 8:
+        print("\n8th")
+    else:
+        print("\n9th")
+
+
+    
 
