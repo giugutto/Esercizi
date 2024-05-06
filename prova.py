@@ -155,3 +155,50 @@ def prime_factors(n: int) -> list[int]:
         result.append(n)
     return result  
 print(prime_factors(4))
+
+
+
+# Immagina di avere uno scrigno pieno di gioielli (rappresentati da una lista di numeri interi). 
+# Questi gioielli hanno vari valori, alcuni più preziosi di altri. 
+# Il tuo compito è trovare il terzo gioiello distinto più prezioso nello scrigno.
+# Qual è la svolta?
+# Nello scrigno possono esserci gioielli duplicati (numeri con lo stesso valore). 
+# A noi però interessano solo valori distinti, ovvero gioielli con valori unici.
+# Scrivi una funzione che prenda come input questo array di valori di gioielli (numeri). 
+# Se nello scrigno sono presenti almeno tre valori distinti, 
+# la funzione dovrebbe restituire il valore del terzo gioiello distinto di maggior valore.
+# Ma c'è un problema! 
+# Se non ci sono tre valori distinti (ad esempio, solo due valori univoci o tutti i valori sono uguali),
+# la funzione dovrebbe restituire il valore del gioiello più prezioso nello scrigno.
+
+def third_max(nums: list[int]) -> int:
+    resultantList = list(set(nums))
+    if len(resultantList) == 2:
+        return max(resultantList)
+    elif len(resultantList) == 1:
+        return resultantList[0]
+    for i in range(3):
+        if len(resultantList) == 1:
+            continue
+        resultantList.remove(max(resultantList))
+        
+    return max(resultantList)
+        
+
+
+print(third_max([3,2,1]))
+print(third_max([1,2]))
+print(third_max([2,2,3,1]))
+print(third_max([2]))
+print(third_max([2,2,3,2,2]))
+
+
+
+
+
+
+
+
+
+    # first_max = second_max = third_max = float('-inf')
+    # pass
