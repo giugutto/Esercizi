@@ -3,9 +3,10 @@
 # # Call the function, and make sure the message displays correctly.
 
 def message() -> str:
-    print("Hi everyone, i'm learning function in python")
+    messaggio = "Hi everyone, i'm learning function in python"
+    return messaggio
 
-message()
+print(message())
 
 # # 8-2. Favorite Book: Write a function called favorite_book() that accepts one parameter, title.
 # # The function should print a message, such as "One of my favorite books is Alice in Wonderland".
