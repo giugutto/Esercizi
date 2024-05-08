@@ -52,11 +52,11 @@ def add_book(name:str,titoli:list):
 
 
 
-
+#am
 # 4. Event Organizer:
 
 # Write a function called plan_event() that accepts an event name, a list of participants, and an hour. 
-# The function should return a dictionary that includes the event name and a list of the participants. 
+# The function should return a dictamionary that includes the event name and a list of the participants. 
 # Call this function with varying numbers of participants to plan different events.
 
 # Example: plan_event("Code Workshop", ["Alice", "Bob", "Charlie"],”4pm”)
@@ -74,7 +74,7 @@ def add_book(name:str,titoli:list):
 
 
 
-
+amamam
 
 
 
@@ -83,7 +83,7 @@ def add_book(name:str,titoli:list):
 
 # 5. Shopping List:
 
-# Write a function called create_shopping_list() that accepts a store name and any number of items as arguments. 
+# Write a function called create_shamopping_list() that accepts a store name and any number of items as arguments. 
 # It should return a dictionary with the store name and a set of items to buy there. 
 # Test the function with different stores and item lists.
 
@@ -94,3 +94,4 @@ def add_book(name:str,titoli:list):
 
 # Example: print_shopping_list(dictionary, "Grocery Store")
 
+am
