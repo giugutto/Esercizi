@@ -68,70 +68,70 @@ class Persona:
         year = self._birthdate[-2:]
         if self._birthdate[3:5] == "01":
             month = "A"
-        if self._birthdate[3:5] == "02":
+        elif self._birthdate[3:5] == "02":
             month = "B"
-        if self._birthdate[3:5] == "03":
+        elif self._birthdate[3:5] == "03":
             month = "C" 
-        if self._birthdate[3:5] == "04":
+        elif self._birthdate[3:5] == "04":
             month = "D" 
-        if self._birthdate[3:5] == "05":
+        elif self._birthdate[3:5] == "05":
             month = "E"
-        if self._birthdate[3:5] == "06":
+        elif self._birthdate[3:5] == "06":
             month = "H"
-        if self._birthdate[3:5] == "07":
+        elif self._birthdate[3:5] == "07":
             month = "L"
-        if self._birthdate[3:5] == "08":
+        elif self._birthdate[3:5] == "08":
             month = "M" 
-        if self._birthdate[3:5] == "09":
+        elif self._birthdate[3:5] == "09":
             month = "P" 
-        if self._birthdate[3:5] == "10":
+        elif self._birthdate[3:5] == "10":
             month = "R" 
-        if self._birthdate[3:5] == "11":
+        elif self._birthdate[3:5] == "11":
             month = "S"
-        if self._birthdate[3:5] == "12":
+        elif self._birthdate[3:5] == "12":
             month = "T" 
         day = self._birthdate[:2]
         if self._gender == "F":
             day = self._birthdate[:2] + 40
-        if self._birth_place == "L'aquila":
+        elif self._birth_place == "L'aquila":
             city = "A345" 
-        if self._birth_place == "Ancona":
+        elif self._birth_place == "Ancona":
             city = "A271"       
-        if self._birth_place == "Aosta":
+        elif self._birth_place == "Aosta":
             city = "A326" 
-        if self._birth_place == "Bari":
+        elif self._birth_place == "Bari":
             city = "A662"
-        if self._birth_place == "Bologna":
+        elif self._birth_place == "Bologna":
             city = "A944" 
-        if self._birth_place == "Cagliari":
+        elif self._birth_place == "Cagliari":
             city = "B354"    
-        if self._birth_place == "Campobasso":
+        elif self._birth_place == "Campobasso":
             city = "B519" 
-        if self._birth_place == "Catanzaro":
+        elif self._birth_place == "Catanzaro":
             city = "C352"       
-        if self._birth_place == "Firenze":
+        elif self._birth_place == "Firenze":
             city = "D612" 
-        if self._birth_place == "Genova":
+        elif self._birth_place == "Genova":
             city = "D969"       
-        if self._birth_place == "Milano":
+        elif self._birth_place == "Milano":
             city = "F205"
-        if self._birth_place == "Napoli":
+        elif self._birth_place == "Napoli":
             city = "F839"
-        if self._birth_place == "Palermo":
+        elif self._birth_place == "Palermo":
             city = "G273"
-        if self._birth_place == "Perugia":
+        elif self._birth_place == "Perugia":
             city = "G478"
-        if self._birth_place == "Potenza":
+        elif self._birth_place == "Potenza":
             city = "G942"
-        if self._birth_place == "Roma":
+        elif self._birth_place == "Roma":
             city = "H501"
-        if self._birth_place == "Torino":
+        elif self._birth_place == "Torino":
             city = "L219"
-        if self._birth_place == "Trento":
+        elif self._birth_place == "Trento":
             city = "L378"
-        if self._birth_place == "Trieste":
+        elif self._birth_place == "Trieste":
             city = "L424"
-        if self._birth_place == "Venezia":
+        elif self._birth_place == "Venezia":
             city = "L736"
 
         self._ssn = first_three_character_surname.upper() + first_three_character_name.upper() + year + month + day + city
@@ -156,4 +156,104 @@ print(persona_1.get_ssn())
 # for i in queue:
 #     print(i.get_cf())
 
+#esercizio1
 
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+alice = Person("Alice", 45)
+bob = Person("bob", 36)
+
+print(alice.age)
+print(bob.age)
+#esercizio2
+
+class Student:
+    def __init__(self, name:str, studyProgram:str, age: int, gender: str):
+        self.name = name
+        self.studyProgram = studyProgram
+        self.age = age
+        self.gender = gender
+
+    def print_info(self):
+        return self.name, self.studyProgram, self.age, self.gender
+
+persona1 = Student("Giuseppe","cybersecurity", 27, "m")
+person2 = Student("Gabriele", "FullStack", 26, "m")
+person3 = Student("Angelo", "Cloud-developer", 19, "m")
+
+print(person3.print_info())
+
+#esercizio3
+
+class Animal:
+    def __init__(self, name:str, legs:int):
+        self.name = name
+        self.legs = legs
+
+    def setLegs(self, newleg):
+        self.legs = newleg
+    
+    def getLegs(self):
+        return self.legs
+    
+
+    def print_info1(self):
+        return self.name, self.legs
+
+animal1 = Animal("Cane", 4)
+animal2 = Animal("Elefante", 4)
+
+animal1.setLegs(3)
+
+print(animal1.legs)
+print(animal1.getLegs())
+print(animal1.print_info1())
+
+
+dizionario = {"valore1":5}
+print(dizionario["valore1"])
+
+#esercizio4
+
+class Food:
+    def __init__(self, name, price, description):
+        self.name = name
+        self.price = price
+        self.description = description
+
+food1 = Food("Hotdog", 3.50, " è popo bono")
+food2 = Food("Tramezzino", 2.50, " è popo bono se ce sta er pomodoro e il tonnazzo")
+food3 = Food("Gelato", 3.50, " è popo bono, sopratutto co i gusti zabaione e il cioccolato all'arancia")
+
+class Menu:
+    def __init__(self, foods = []) -> None:
+        self.foods = foods
+    def addfood(self, af: Food):
+        self.foods.append(af)
+    def removefood(self, rf:Food):
+        self.foods.remove(rf)
+    def printprices(self):
+        for i in self.foods:
+            print(i.price) 
+    def getAveragePrice(self):
+        v = 0
+        for i in self.foods:
+            v += i.price
+        print(v / 5)           
+    
+    
+food4 = Food("Bigmac", 4.60, "panino enorme molto buono")
+food5 = Food("Cornetto", 0.60, "se alla cioccolata buonissimo")
+menu = Menu()
+
+menu.addfood(food1)
+menu.addfood(food2)
+menu.addfood(food3)
+menu.addfood(food4)
+menu.addfood(food5)
+
+menu.printprices()
+menu.getAveragePrice()

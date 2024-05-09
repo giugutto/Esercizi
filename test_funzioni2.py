@@ -16,7 +16,7 @@ def ugly_number(num: int) -> bool:
     return True
 
 
-print(ugly_number(5))
+print(ugly_number(1))
 
 #Immagina di avere una raccolta di note musicali rappresentate da una serie di numeri interi.
 # Queste note possono avere altezze (valori) diversi.

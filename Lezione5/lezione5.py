@@ -24,21 +24,21 @@ print(add_like({"v_1":"ciao"},"canzone", True))
 # Write a function called add_book() that accepts an author's name and a variable number of book titles authored by them. 
 # This function should return a dictionary where the author's name is the key and the value is a list of their books. 
 # Demonstrate this function by adding books for different authors.
-def add_book(name:str,titoli:list):
-
-
 # Example: add_book("Mark Twain", ["The Adventures of Tom Sawyer", "Life on the Mississippi"])
+def add_book(name:str,titoli:list):
+    return {name:[titoli]}
+
+print(add_book("ciccio",["ciao","cioa"]))
+
 
 # Write a function called delete_book() that accepts a dictionary and the name of the author from whom to remove all details. 
 # This function should return an updated dictionary.
 
 # Example: delete_book(dictionary, “Mark Twain”)
 
-
-
-
-
-
+def delete_book(dizionario:dict, author:str)-> dict:
+    return dizionario, author
+print(de)
 
 
 
@@ -50,7 +50,7 @@ def add_book(name:str,titoli:list):
 
 # Example: build_profile("John", "Doe", occupation="Developer", location="USA", age=30)
 
-
+#def build_profile(name, surname, occupation = None, location = None, age)
 
 #am
 # 4. Event Organizer:
@@ -74,7 +74,7 @@ def add_book(name:str,titoli:list):
 
 
 
-amamam
+
 
 
 
@@ -94,4 +94,4 @@ amamam
 
 # Example: print_shopping_list(dictionary, "Grocery Store")
 
-am
+
