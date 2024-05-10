@@ -37,8 +37,10 @@ print(add_book("ciccio",["ciao","cioa"]))
 # Example: delete_book(dictionary, “Mark Twain”)
 
 def delete_book(dizionario:dict, author:str)-> dict:
-    return dizionario, author
-print(de)
+    return dizionario, dizionario.pop(author)
+
+print(delete_book({"key1":1,"key2":2,"key3":3}, "key1"))
+
 
 
 
@@ -64,6 +66,87 @@ print(de)
 # Write a function called modify_event() that accepts a dictionary, an event name, and new details to modify an already planned event.
 
 # Example: modify_event(dictionary, "Code Workshop", ["Alice", "Bob", "Charlie"], ”4pm”)
+
+
+
+
+
+
+def rimuovi_elementi(lista: list[int], da_rimuovere: dict[int:int]) -> list[int]:
+    for k,v in da_rimuovere.items():
+        counter = 0
+        lista_nuova= lista.copy()
+        while v > counter:
+            if k in lista:
+                lista_nuova.remove(k)
+                counter+=1
+            else:
+                break
+        
+       
+    return lista_nuova
+
+
+print(rimuovi_elementi([1,2,3,2,4,5], {2:2}))
+
+
+def aggrega_voti(voti: list[dict]) -> dict[str:list[int]]:
+    dizionario_vuoto= {}
+    for i in voti:
+        for k,v in i.items():
+            dizionario_vuoto.append(k,v)
+            
+    return dizionario_vuoto
+
+
+print(aggrega_voti([{'nome': 'Alice', 'voto': 90}, {'nome': 'Bob', 'voto': 75}, {'nome': 'Alice', 'voto': 85}]))
+#{'Alice': [90, 85], 'Bob': [75]}
+
+
+#Scrivi una funzione che accetti un dizionario di prodotti con i prezzi e restituisca un nuovo dizionario con solo i prodotti che hanno un prezzo superiore a 20, scontati del 10%.
+
+# For example:
+# print(filtra_e_mappa({'Penna': 15.0, 'Zaino': 50.0, 'Quaderno': 22.0}))
+
+# print(filtra_e_mappa({'Penna': 15.0, 'Zaino': 50.0, 'Quaderno': 22.0}))
+
+	
+
+# {'Zaino': 45.0, 'Quaderno': 19.8}
+
+# print(filtra_e_mappa({'Gomma': 2.0, 'Matita': 1.0})) 
+
+# {}
+
+
+
+
+# PARTE 1
+# Scrivi una funzione chiamata create_contact() che accetta il nome e cognome, e-mail (facoltativo) e numero di telefono (facoltativo). La funzione dovrebbe restituire un dizionario con i dettagli del contatto.
+ 
+# PARTE 2
+# Scrivi una funzione chiamata update_contact() che accetta il dizionario creato, il nome e cognome del contatto da aggiornare, e il dettaglio facoltativo da aggiornare. Questa funzione dovrebbe aggiornare il dizionario del contatto.
+
+# For example:
+# Test 	Result
+
+# contact = create_contact("Mario Rossi", email="mario.rossi@gmail.com", telefono=788787)
+# print(create_contact("Mario Rossi", email="mario.rossi@gmail.com", telefono=788787))
+# print(update_contact(contact, "Mario Rossi", telefono=123456789))
+
+	
+
+# {'profile': 'Mario Rossi', 'email': 'mario.rossi@gmail.com', 'telefono': 788787}
+# {'profile': 'Mario Rossi', 'email': 'mario.rossi@gmail.com', 'telefono': 123456789}
+
+
+
+
+
+
+
+
+
 
 
 
