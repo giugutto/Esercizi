@@ -52,9 +52,16 @@ print(delete_book({"key1":1,"key2":2,"key3":3}, "key1"))
 
 # Example: build_profile("John", "Doe", occupation="Developer", location="USA", age=30)
 
-#def build_profile(name, surname, occupation = None, location = None, age)
+def build_profile(name, surname, occupation = None, location = None, age= None):
+    return name,surname,occupation,location,age
 
-#am
+print(build_profile("Marco","Cirelli","Carrozziere","Texas",36))
+
+def build_profile(name, surname, **args):
+    return name,surname,args
+
+print(build_profile("Marco","Cirelli",occupazione = "Carrozziere", città = "Texas",età = 36))
+
 # 4. Event Organizer:
 
 # Write a function called plan_event() that accepts an event name, a list of participants, and an hour. 
@@ -63,12 +70,46 @@ print(delete_book({"key1":1,"key2":2,"key3":3}, "key1"))
 
 # Example: plan_event("Code Workshop", ["Alice", "Bob", "Charlie"],”4pm”)
 
+def plan_event(event_name:str, partecipants: list, hour:str) -> dict:
+    nomeevento = event_name
+    newdict = {nomeevento:[]}
+    newdict[nomeevento] = partecipants
+    return newdict
+print(plan_event("Corso Cybersec", ["Pippo","Paperino", "Pluto","Gatto Silvestro", "Pippo Baudo"], "9am"))
+
+# user_name = 'JohnDoe'
+# user_info = {user_name: {'email': 'john@example.com', 'age': 30}}
+# print(user_info)
+
+
 # Write a function called modify_event() that accepts a dictionary, an event name, and new details to modify an already planned event.
 
 # Example: modify_event(dictionary, "Code Workshop", ["Alice", "Bob", "Charlie"], ”4pm”)
+def modify_event(diz:dict, eventname:str, lista2: list, orario:str):
+    new_dict = {}
+    for k,v in diz.items():
+        if k == eventname:
+            new_dict[eventname] = v + lista2
+        else:
+            print("No event with that name.")
+    return new_dict
 
 
 
+print(modify_event({'Corso Cybersec': ['Pippo', 'Paperino', 'Pluto', 'Gatto Silvestro', 'Pippo Baudo']}, "Corso Cybersec", ["Alice", "Bob", "Charlie"], "4pm"))
+
+# 5. Shopping List:
+
+# Write a function called create_shamopping_list() that accepts a store name and any number of items as arguments. 
+# It should return a dictionary with the store name and a set of items to buy there. 
+# Test the function with different stores and item lists.
+
+# Example: create_shopping_list("Grocery Store", {"Milk", "Eggs", "Bread"})
+
+# Write a function called print_shopping_list() that accepts a dictionary and a store name, 
+# then prints each item from that store's shopping list.
+
+# Example: print_shopping_list(dictionary, "Grocery Store")
 
 
 
@@ -90,21 +131,101 @@ def rimuovi_elementi(lista: list[int], da_rimuovere: dict[int:int]) -> list[int]
 print(rimuovi_elementi([1,2,3,2,4,5], {2:2}))
 
 
-def aggrega_voti(voti: list[dict]) -> dict[str:list[int]]:
-    dizionario_vuoto= {}
-    for i in voti:
-        for k,v in i.items():
-            dizionario_vuoto.append(k,v)
-            
-    return dizionario_vuoto
+# def aggrega_voti(voti: list[dict]) -> dict[str:list[int]]:
+#     superlista = []
+#     dizionario_vuoto= {}
+#     for i in voti:
+#         for k,v in i.items():
+#             if k not in dizionario_vuoto:
+#                 dizionario_vuoto= {k[v]}
+#             if k in dizionario_vuoto:
+#                 dizionario_vuoto[k] = v
+#         superlista.append(dizionario_vuoto)
+#     return superlista
+
+# print(aggrega_voti([{'nome': 'Alice', 'voto': 90}, {'nome': 'Bob', 'voto': 75}, {'nome': 'Alice', 'voto': 85}]))
+ 
+def aggregate_grades(grades_list):
+    aggregated_grades = {}
+    
+    for grade_dict in grades_list:
+        #codi facendo si sta estraendo il nome e il voto dello studente
+        name = grade_dict['nome']
+        grade = grade_dict['voto']
+        print(grade,name)
+        if name in aggregated_grades:
+            aggregated_grades[name].append(grade)
+        else:
+            aggregated_grades[name] = [grade]
+    
+    return aggregated_grades
+
+# Test the function
+grades = [{'nome': 'Alice', 'voto': 90}, {'nome': 'Bob', 'voto': 75}, {'nome': 'Alice', 'voto': 85}]
+print(aggregate_grades(grades))
 
 
-print(aggrega_voti([{'nome': 'Alice', 'voto': 90}, {'nome': 'Bob', 'voto': 75}, {'nome': 'Alice', 'voto': 85}]))
+#print(aggrega_voti([{'nome': 'Alice', 'voto': 90}, {'nome': 'Bob', 'voto': 75}, {'nome': 'Alice', 'voto': 85}]))
 #{'Alice': [90, 85], 'Bob': [75]}
 
+# def plan_event(event_name:str, partecipants: list, hour:str) -> dict:
+#     nomeevento = event_name
+#     newdict = {nomeevento:[]}
+#     newdict[nomeevento] = partecipants
+#     return newdict
+d = {'k1': 1, 'k2': 2}
 
-#Scrivi una funzione che accetti un dizionario di prodotti con i prezzi e restituisca un nuovo dizionario con solo i prodotti che hanno un prezzo superiore a 20, scontati del 10%.
+d['k3'] = 3
+print(d)
+# {'k1': 1, 'k2': 2, 'k3': 3}
 
+d['k1'] = 100
+print(d)
+# {'k1': 100, 'k2': 2, 'k3': 3}
+
+
+# def aggrega_voti(voti: list[dict]) -> dict[str:list[int]]:
+#     dizionario_vuoto= {}
+#     for i in voti:
+#         for k,v in i.items():
+
+
+#             # if k not in dizionario_vuoto:
+#             #     lista = [v]
+#             #     dizionario_vuoto[k] = lista
+#             # else:
+#             #     dizionario_vuoto[k] = lista.append(v)
+        
+#         return dizionario_vuoto
+    
+
+# def aggrega_voti(voti: list[dict]) -> dict[str:list[int]]:
+#     dizionario_vuoto= {}
+#     for i in voti:
+#         for k,v in i.items():
+
+
+            # if k not in dizionario_vuoto:
+            #     lista = [v]
+            #     dizionario_vuoto[k] = lista
+            # else:
+            #     dizionario_vuoto[k] = lista.append(v)
+        
+        #return dizionario_vuoto
+    
+#print(aggrega_voti([{'nome': 'Alice', 'voto': 90}, {'nome': 'Bob', 'voto': 75}, {'nome': 'Alice', 'voto': 85}]))
+#Scrivi una funzione che accetti un dizionario di prodotti con i prezzi e restituisca 
+#un nuovo dizionario con solo i prodotti che hanno un prezzo superiore a 20, scontati del 10%.
+def filtra_e_mappa(dizionario: dict) -> dict:
+    for k,v in dizionario.items():
+        if v > 20:
+            dizionario[k] = v - v * 10 / 100
+        else:
+            continue
+       
+    return dizionario
+
+print(filtra_e_mappa({'Penna': 15.0, 'Zaino': 50.0, 'Quaderno': 22.0}))
 # For example:
 # print(filtra_e_mappa({'Penna': 15.0, 'Zaino': 50.0, 'Quaderno': 22.0}))
 
@@ -164,17 +285,6 @@ print(aggrega_voti([{'nome': 'Alice', 'voto': 90}, {'nome': 'Bob', 'voto': 75}, 
 
 
 
-# 5. Shopping List:
 
-# Write a function called create_shamopping_list() that accepts a store name and any number of items as arguments. 
-# It should return a dictionary with the store name and a set of items to buy there. 
-# Test the function with different stores and item lists.
-
-# Example: create_shopping_list("Grocery Store", {"Milk", "Eggs", "Bread"})
-
-# Write a function called print_shopping_list() that accepts a dictionary and a store name, 
-# then prints each item from that store's shopping list.
-
-# Example: print_shopping_list(dictionary, "Grocery Store")
 
 
