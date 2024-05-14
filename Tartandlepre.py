@@ -66,20 +66,27 @@ def print_quadri(position, lepre_pos, tartaruga_pos):
         elif i == 0:
             print("-", end=" ")
 
+#ogni 10 tick dell'orologio.
 
 def tartaruga_move(weather) -> int:
     x = random.randint(1, 10)
     passoveloce = 3
     passolento = -6
-    scivolata = 1
-    if weather == "pioggia":
-        x -= 1
+    scivolata = 1      
+    if weather == "Pioggia" and x <=5:
+        return passoveloce - 1
+    if weather == "Pioggia" and x <=7:
+        return scivolata - 1
+    if weather == "Pioggia" and x <=10:
+        return passolento - 1
     if x <= 5:
         return passoveloce
     elif x <= 7:
         return scivolata
     else:
         return passolento
+        
+        
 
 def lepre_move(weather):
     i = random.randint(1,10)
@@ -88,7 +95,16 @@ def lepre_move(weather):
     grandes = -12
     piccolob = 1
     piccolas = -2
-
+    if weather == "Pioggia" and i <= 2:
+        return riposo - 2
+    if weather == "Pioggia" and i <= 4:
+        return grandeb - 2
+    if weather == "Pioggia" and i <= 5:
+        return grandes - 2
+    if weather == "Pioggia" and i <= 8:
+        return piccolob - 2
+    if weather == "Pioggia" and i <= 11:
+        return piccolas - 2
     if i <= 2:
         return riposo
     if i <= 4:
@@ -101,17 +117,25 @@ def lepre_move(weather):
         return piccolas
     
 
-
+def change_weather(tick):
+    if tick % 10 == 0:
+        return random.choice(["soleggiato", "pioggia"])
+    else:
+        return None
+tick = 0
+weather = "soleggiato"
 print("'BANG !!!!! AND THEY'RE OFF !!!!!'")
 
 lepre_pos = 1
 tartaruga_pos = 1
 
 while True:
-    lepre_pos += lepre_move()
+    tick += 1
+    weather = change_weather(tick)
+    lepre_pos += lepre_move("ica")
     if lepre_pos < 0:
         lepre_pos = 0
-    tartaruga_pos += tartaruga_move()
+    tartaruga_pos += tartaruga_move("Pioggia")
     if tartaruga_pos < 0:
         tartaruga_pos = 0
 
