@@ -398,3 +398,8 @@ print(ordina("without,hello,bag,world"))
 
 #     Input: Practice makes perfect
 #     Output: PRACTICE MAKES PERFECT
+def senteces(stringa:str):
+    x = stringa.upper()
+    return x
+    
+print(senteces("Practice makes perfect"))
