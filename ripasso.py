@@ -1,13 +1,12 @@
 #non ci posso essere spazi nella dichiariazione della variabile
 #al posto degli spazi mettiamo un'underscore
 #dopo i 2 punti c'è il typing e viene ignorata da python
-#quindi se mettiamo un int e scriviamo un float, esso rimane un int
-#quando darà un float come valore
-nome_variabile_1: int = 17
+#Se mettiamo un int come typing e scriviamo un float, esso diventa un float
+nome_variabile_1: int = 17.6
 nome_variabile: float = 17.0
 nome_variabile: bool = True #(or False)
-nome_variabile_1 += 6.7
-print(nome_variabile_1) #come puoi vedere, il tipo di dato è un int
+nome_variabile_1 += 6.0
+print(type(nome_variabile_1)) #come puoi vedere, il tipo di dato è un float
 
 #da un float a un double, 
 # cambia che con un float abbiamo a disposizione 32 bit,
@@ -57,9 +56,9 @@ variabile1: bool = True
 variabile2: bool = False
 #le operazioni che posso fare sono and, or, not
 
-print(variabile1 and variabile2)
-print(variabile1 or variabile2)
-print(not variabile1)
+print(variabile1 and variabile2) #moltiplicazione
+print(variabile1 or variabile2) #addizione
+print(not variabile1) #il contrario del valore
 
 #AND torna vero solo quando le 2 variabili sono true, in 
 #questo caso torna false(è il prodotto di 2 variabili, 
@@ -159,6 +158,30 @@ for i in range(len(lista) -1):
 # for x in range(10):
 #     print(f"x:{x}")
 
+#TUPLE
+# Tuples are used to store multiple items in a single variable.
+# A tuple is a collection which is ordered and unchangeable.
+thistuple = ("apple", "banana", "cherry")
+print(thistuple)
+# Tuple items are ordered, unchangeable, and allow duplicate values.
+# Tuple items are indexed, the first item has index [0], the second item has index [1] etc.
+# Stampiamo gli indici di questa tupla
+for i in range(len(thistuple)):
+    print (i)
+
+
+#SET
+# i set sono una lista ma con delle differenze
+#set type is:
+# -unordered: there’s no specific order to the elements
+# myset = {1, 7, 5}
+# print(myset)
+# >>> {1, 5, 7}
+# -mutable: you can modify the set
+# -doesn’t allow duplicates:
+# myset = {1,1}
+# print(myset)
+# >>> {1}
 
 #CICLI
 #esistono 2 tipi di cicli for and while
@@ -188,7 +211,7 @@ while contatore < len(lista):
     print(f"x^2: {lista[contatore]**2}")
     contatore +=1
 
-#dizionari
+#DIZIONARI
 anagrafe: dict = {
     "persona1":"Flavio",
     "persona2":"Marco",
@@ -204,13 +227,18 @@ anagrafe["persona4"] = "Bardh"
 #per aggiornare il valore di una chiave andremo a fare cosi
 anagrafe["persona2"] = "Bardh"
 
-#aggiungiamo il valore della chiave se la chiave non esiste altrimenti lo stampiamo
+#piccolo esercizio, aggiungiamo il valore della chiave se la chiave non esiste altrimenti lo stampiamo
 key:str = "persona100"
 
 if key in anagrafe:
     print(anagrafe[key])
 else:
     anagrafe[key] = None
+
+if key in anagrafe:
+    anagrafe[key] = "ciccio"
+else:
+    anagrafe[key]
 
 voti: list = [{"nome" : "Flavio", "voto":18}, {"nome" : "Flavio", "voto":25}, {"nome" : "Marco", "voto":25}]
 
@@ -234,11 +262,11 @@ for value in aggr.values():
     print(value)
 
 #mentre se usiamo questa funzione ci stampa solo le chiavi
-for ket in aggr.keys():
+for key in aggr.keys():
     print(key)
 
 
-#i diozionari possono essere annidati quindi posso dichiarare un 
+#i dizionari possono essere annidati quindi posso dichiarare un 
 #dizionario che ha delle chiavi e come valori ha un dizionario
 aggr: dict = {
     "key1": {
@@ -260,7 +288,7 @@ print(x)
 # \\ il primo slash forza il secondo ad essere interpretato come carattere
 
 #LISTE,DIZIONARI E SET SONO MODIFICABILI, MENTRE LE TUPLE NO
-#SUL SET NON CI SONO DULICATI
+#SUL SET NON CI SONO DUPLICATI
 
 def get_numbers():
     a=1
@@ -270,7 +298,7 @@ def get_numbers():
 t = get_numbers()
 a,b = get_numbers()
 print(t,a,b)
-
+print(a,b)
 
 def print_somma(a:int, b:int):
     somma = a+ b 
@@ -294,7 +322,7 @@ def find_numbers(num1,num2):
                 listan.remove(x)
     return listan
 
-find_numbers(2000, 3200)
+print(find_numbers(2000, 3200))
 
 
 
