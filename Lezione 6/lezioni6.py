@@ -431,3 +431,90 @@ Amministratore1.privileges.show_privileges()
 #  Make a separate file that imports Restaurant. 
 # Make a Restaurant instance, and call one of Restaurant’s methods to show that the import statement is working properly.
 
+# 9-11. Imported Admin: Start with your work from Exercise 9-8. 
+# Store the classes User, Privileges, and Admin in one module. 
+# Create a separate file, make an Admin instance, and call show_privileges() to show that everything is working correctly.
+
+# 9-13. Dice: Make a class Die with one attribute called sides, 
+# which has a default value of 6. 
+# Write a method called roll_die() that prints a random number between 1 and the number of sides the die has. 
+# Make a 6-sided die and roll it 10 times. Make a 10-sided die and a 20-sided die.
+# Roll each die 10 times.
+import random
+
+class Dice:
+    def __init__(self, sides = 6) -> None:
+        self.sides = sides
+    def roll_die(self):
+        x = random.randint(1,self.sides)
+        print(x)
+dice1 = Dice(6)
+dice2 = Dice(10)
+dice3 = Dice(20)
+
+dice1.roll_die()
+dice1.roll_die()
+dice1.roll_die()
+dice1.roll_die()
+dice1.roll_die()
+dice1.roll_die()
+dice1.roll_die()
+dice1.roll_die()
+dice1.roll_die()
+dice1.roll_die()
+
+dice2.roll_die()
+dice3.roll_die()
+dice2.roll_die()
+dice2.roll_die()
+dice2.roll_die()
+dice2.roll_die()
+dice2.roll_die()
+dice2.roll_die()
+dice2.roll_die()
+dice2.roll_die()
+
+dice3.roll_die()
+dice3.roll_die()
+dice3.roll_die()
+dice3.roll_die()
+dice3.roll_die()
+dice3.roll_die()
+dice3.roll_die()
+dice3.roll_die()
+dice3.roll_die()
+dice3.roll_die()
+    
+
+# 9-14. Lottery: Make a list or tuple containing a series of 10 numbers and 5 letters.
+# Randomly select 4 numbers or letters from the list and print a message saying that any 
+# ticket matching these 4 numbers or letters wins a prize.
+
+Lotteria = [23, 81, 4, 53, 28, 72, 64, 12, 68, 35, "a", "b", "c", "d", "e"]
+
+Numeri_vincenti = []
+for i in range(4):
+    #per andare a prendere i numeri che stanno all'interno della lista nominata
+    #lotteria con il metodo random, scriveremo: Lotteria[random.randint(range)]
+    Numeri_vincenti.append(Lotteria[random.randint(0, len(Lotteria) - 1)])
+
+print(f"Any ticket matching these 4 numbers or letters wins a prize! The numbers and the letters are: {Numeri_vincenti}")
+
+# 9-15. Lottery Analysis: You can use a loop to see how hard it might be to win the kind of lottery you just modeled. 
+# Make a list or tuple called my_ticket. Write a loop that keeps pulling numbers until your ticket wins. 
+# Print a message reporting how many times the loop had to run to give you a winning ticket.
+
+
+
+Ciclidiloop = 0
+
+while 10 > 1:
+        My_ticket = []
+        for i in range(4):
+            My_ticket.append(Lotteria[random.randint(0, len(Lotteria) - 1)])
+        if My_ticket == Numeri_vincenti:
+            print(f"YOU WIN! Numero di cicli iterati: {Ciclidiloop}")
+            break
+        else:
+            Ciclidiloop += 1
+            
