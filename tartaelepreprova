@@ -176,12 +176,12 @@ while True:
     tartaruga_pos += tartaruga_move_result
     for k,v in Ostacoli.items():
         if tartaruga_pos == k:
-            tartaruga_pos - v
+            tartaruga_pos -= v
         else:
             continue
     for k,v in Bonus.items():
         if tartaruga_pos == k:
-            tartaruga_pos + v
+            tartaruga_pos += v
         else:
             continue
     if tartaruga_pos < 0:
