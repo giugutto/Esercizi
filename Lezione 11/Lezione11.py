@@ -104,17 +104,17 @@ class Magazzino:
     def aggiungi_prodotto(self, prodotto:Prodotto):
         self.prodotti.append(prodotto)
 
-    def cerca_prodotti(self, nome:str):
-        self.nome = nome
-        if nome in self.prodotti:
-            print("Il prodotto è presente")
-        else:
-            print("Il prodotto non è presente")
+    def cerca_prodotti(self, nome:str) -> Prodotto:
+        for i in self.prodotti: #Nota bene, dal momento che questo metodo fa parte della classe Magazzino, noi possiamo accedere al suo attributo "prodotti"
+            if i.nome == nome: #Dal momento che l'attributo "prodotti" è una lista di elementi che fanno parte della classe prodotto, noi possiamo accedere ai suoi attributi.
+                return i
 
     def verifica_disponibilita(self, nome:str):
-        self.nome = nome
-        if self.nome
-
+        x = self.cerca_prodotti(nome) #dato che il return del metodo cerca_prodotti è un i, quindi un elemento con gli attributi nome e quantità, noi possiamo accedere alla sua quantity.
+        if x.quantity != 0:
+            return "Prodotto disponibile"
+        return "Prodotto non disponibile"
+        
 
 
         
