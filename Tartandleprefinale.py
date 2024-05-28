@@ -96,15 +96,16 @@ lepre_energia = 100
 
 tick = 0
 weather = "soleggiato"
+Ostacoli:dict = {15: -3, 30: -5, 45: -7}
+Bonus:dict = {10: 5, 25: 3, 50: 10}
 
 while True:
     tick += 1
     weather = change_weather(tick) or weather #se non c'è nessun cambiamento lascia il meteo corrente
-    Ostacoli:dict = {15: -3, 30: -5, 45: -7}
-    Bonus:dict = {10: 5, 25: 3, 50: 10}
     lepre_move_result, lepre_energia = lepre_move(weather, lepre_energia)
     lepre_pos += lepre_move_result
-
+    if lepre_pos < 0:
+        lepre_pos = 0
     for k,v in Ostacoli.items():
         if lepre_pos == k:
             lepre_pos -= v
@@ -115,10 +116,10 @@ while True:
             lepre_pos += v
         else:
             continue
-    if lepre_pos < 0:
-        lepre_pos = 0
     tartaruga_move_result, tartaruga_energia = tartaruga_move(weather, tartaruga_energia)
     tartaruga_pos += tartaruga_move_result
+    if tartaruga_pos < 0:
+        tartaruga_pos = 0
     for k,v in Ostacoli.items():
         if tartaruga_pos == k:
             tartaruga_pos -= v
@@ -129,8 +130,7 @@ while True:
             tartaruga_pos += v
         else:
             continue
-    if tartaruga_pos < 0:
-        tartaruga_pos = 0
+    
 
     print_quadri(70, lepre_pos,tartaruga_pos)
 
@@ -147,6 +147,3 @@ while True:
 
 
 
-Ostacoli:dict = {15: -3, 30: -5, 45: -7}
-
-Bonus:dict = {10: 5, 25: 3, 50: 10}
