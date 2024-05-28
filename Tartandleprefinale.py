@@ -12,17 +12,17 @@ def print_quadri(position, lepre_pos, tartaruga_pos):
             print("-", end=" ")
     print()
 
-#ogni 10 tick dell'orologio.
+
 def tartaruga_move(weather, energy) -> int:
     x = random.randint(1, 10)
     passoveloce = 3
     passolento = -6
     scivolata = 1
-    if weather == "Pioggia": 
-        x -= 1
     if x <= 5:
         if energy >= 5:
             energy -= 5
+            if weather == "Pioggia":
+                return passoveloce -1, energy
             return passoveloce, energy
         else:
             energy += 10
@@ -30,6 +30,8 @@ def tartaruga_move(weather, energy) -> int:
     elif x <= 7:
         if energy >= 10:
             energy -= 10
+            if weather == "Pioggia":
+                return scivolata -1, energy
             return scivolata, energy
         else:
             energy += 10
@@ -37,6 +39,8 @@ def tartaruga_move(weather, energy) -> int:
     else:
         if energy >= 3:
             energy -= 3
+            if weather == "Pioggia":
+                return passolento -1, energy
             return passolento, energy
         else:
             energy += 10
@@ -49,40 +53,47 @@ def lepre_move(weather, energy):
     grandes = -12
     piccolob = 1
     piccolas = -2
-    if weather == "Pioggia":
-        i -= 2 
+    
     if i <= 2:
         energy = min(100, energy + 10)
         return 0, energy
     if i <= 4:
         if energy >= 15:
             energy -= 15
+            if weather == "Pioggia":
+                return grandeb -2, energy
             return grandeb, energy
         else:
             return 0, energy
     if i <= 5:
         if energy >= 20:
             energy -= 20
+            if weather == "Pioggia":
+                return grandes -2, energy
             return grandes, energy
         else:
             return 0, energy
     if i <= 8:
         if energy >= 5:
             energy -= 5
+            if weather == "Pioggia":
+                return piccolob -2, energy
             return piccolob, energy
         else:
             return 0, energy
     if i <= 11:
         if energy >= 8:
             energy -= 8
+            if weather == "Pioggia":
+                return piccolas -2, energy
             return piccolas, energy
         else:
             return 0, energy
         
-       
+#ogni 10 tick dell'orologio.    
 def change_weather(tick):
     if tick % 10 == 0:
-        return random.choice(["soleggiato", "pioggia"])
+        return random.choice(["soleggiato", "Pioggia"])
     else:
         return None
 
@@ -101,14 +112,14 @@ Bonus:dict = {10: 5, 25: 3, 50: 10}
 
 while True:
     tick += 1
-    weather = change_weather(tick) or weather #se non c'è nessun cambiamento lascia il meteo corrente
+    weather = change_weather(tick) #or weather #se non c'è nessun cambiamento lascia il meteo corrente
     lepre_move_result, lepre_energia = lepre_move(weather, lepre_energia)
     lepre_pos += lepre_move_result
     if lepre_pos < 0:
         lepre_pos = 0
     for k,v in Ostacoli.items():
         if lepre_pos == k:
-            lepre_pos -= v
+            lepre_pos += v
         else:
             continue
     for k,v in Bonus.items():
@@ -122,7 +133,7 @@ while True:
         tartaruga_pos = 0
     for k,v in Ostacoli.items():
         if tartaruga_pos == k:
-            tartaruga_pos -= v
+            tartaruga_pos += v
         else:
             continue
     for k,v in Bonus.items():
@@ -141,7 +152,7 @@ while True:
         print("LEPRE WINS || YUCH!!")
         break
     elif tartaruga_pos >= 70:
-        print("TARTARUGA WINS! || VAY!")
+        print("TARTARUGA WINS! || YAY!")
         break
 
 
