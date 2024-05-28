@@ -112,7 +112,7 @@ Bonus:dict = {10: 5, 25: 3, 50: 10}
 
 while True:
     tick += 1
-    weather = change_weather(tick) #or weather #se non c'è nessun cambiamento lascia il meteo corrente
+    weather = change_weather(tick) or weather #se non c'è nessun cambiamento lascia il meteo corrente
     lepre_move_result, lepre_energia = lepre_move(weather, lepre_energia)
     lepre_pos += lepre_move_result
     if lepre_pos < 0:
