@@ -3,21 +3,21 @@ import random
 def print_quadri(position, lepre_pos, tartaruga_pos):
     for i in range(1, 71):
         if i == tartaruga_pos:
-            print("T", end=" ")
+            print(" T ", end="")
         elif i == lepre_pos:
-            print("H", end=" ")
+            print(" H ", end="")
         elif i == lepre_pos and i == tartaruga_pos:
-            print("OUCH!", end=" ")
+            print("OUCH!", end="")
         else:
-            print("-", end=" ")
-    print()
+            print("-", end="")
+    print("\n")
 
 
 def tartaruga_move(weather, energy) -> int:
     x = random.randint(1, 10)
     passoveloce = 3
-    passolento = -6
-    scivolata = 1
+    passolento = 1
+    scivolata = -6
     if x <= 5:
         if energy >= 5:
             energy -= 5
@@ -53,7 +53,6 @@ def lepre_move(weather, energy):
     grandes = -12
     piccolob = 1
     piccolas = -2
-    
     if i <= 2:
         energy = min(100, energy + 10)
         return 0, energy
