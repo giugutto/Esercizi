@@ -121,6 +121,12 @@ class Library:
             member.return_book(book)
         else:
             raise ValueError()
+        
+    def get_borrowed_books(self, member_id) -> list[Book]: # restituisce la lista dei libri presi in prestito dal membro.
+        print(self.members[member_id].borrowed_book)
+    
+
+
 
 
 

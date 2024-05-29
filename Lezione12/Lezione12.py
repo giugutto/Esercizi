@@ -33,7 +33,7 @@ class Libro:
         self.autore = autore
         self.stato_del_prestito:bool = False
     
-
+class Biblioteca:
     def __init__(self) -> None:
         self.libri: list[Libro] = []
 
@@ -109,9 +109,44 @@ class Moviecatalog:
 
     def add_movie(self, director_name:str, movies: list):
         if director_name not in self.catalog:
-            self.catalog[director_name] = movies
+            self.catalog[director_name] = [movies]
         else:
-            self.catalog[director_name].append(movies)
-        
+                self.catalog[director_name].append(movies)
+
+    def remove_movie(self,director_name: str, movie_name: str):
+        if director_name in self.catalog:
+            self.catalog[director_name].remove(movie_name)
+            if self.catalog[director_name] == []:
+                del self.catalog[director_name]
+    
+    def list_directories(self):
+        print(self.catalog.keys())
+
+    def get_movies_by_director(self, director_name):
+        print(self.catalog[director_name])
+            
+    def search_movies_by_titles(self, title: str):
+            x = []
+            for director in self.catalog:
+                film: list[str] = self.catalog[director]
+                for i in film:
+                    if title.lower() in i.lower():
+                        if director not in x:
+                            x.append(director)
+                        x.append(i)
+            if x:
+                return x
+            else:
+                print("Error, there's no title that match this word")
+                
 
         
+catalogo = Moviecatalog()
+catalogo.add_movie("Roberto Benigni", "La vita è bella")
+catalogo.add_movie("Roberto Benigni", "haisda")
+catalogo.add_movie("Fellini", "La vita è brutta")
+catalogo.get_movies_by_director("Roberto Benigni")
+catalogo.add_movie("Vincenzo Salemme","E Fuori Nevica")
+catalogo.remove_movie("Roberto Benigni", "haisda")
+catalogo.list_directories()
+print(catalogo.search_movies_by_titles("La"))
