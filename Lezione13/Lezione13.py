@@ -168,7 +168,7 @@ except ValueError as e:
     print(e)
 
  	
-ESERCIZIO 3
+#ESERCIZIO 3
 # Data una stringa s e una lista di stringhe wordDict, 
 # restituisce True se s può essere segmentato in una sequenza separata da spazi di una o più parole del dizionario;
 # False altrimenti.
@@ -179,26 +179,49 @@ ESERCIZIO 3
 # True
 # print(word_break("catsandog",["cats","dog","sand","and","cat"]))
 # False
-def world_break(stringa: str, lista: list):
+def word_break(stringa: str, lista: list):
+    listavuota = ""
+    for i in lista:
+        listavuota += i
+    if listavuota == stringa: 
+        return True
+    elif listavuota in stringa:
+        return True
+    else:
+        return False
+print(word_break("leetcode",["leet","code"]))
+
+print(word_break("applepenapple", ["apple","pen"]))
+
+print(word_break("catsandog",["cats","dog","sand","and","cat"]))
+
+
+
+
     
 
-ESERCIZIO 4
+#ESERCIZIO 4
 # Data l'inizio di una lista concatenata, invertire la lista e restituire la lista invertita.
-
 # For example:
 # Test 	Result
-
 # head = ListNode(val=1, next=ListNode(val=2, next=ListNode(val=3, next=ListNode(val=4, next=ListNode(val=5)))))
 # print(reverse_list(head))
-
-	
-
 # [5, 4, 3, 2, 1]
-
 # head = ListNode(val=1, next=ListNode(val=2))
 # print(reverse_list(head))
 
-ESERCIZIO 6
+def reverse_list(head: list):
+    lista_reverse = []
+    for i in reversed(head):
+        lista_reverse.append(i)
+#print(reverse_list(ListNode(val=1, next=ListNode(val=2, next=ListNode(val=3, next=ListNode(val=4, next=ListNode(val=5)))))))
+
+
+
+
+
+
+#ESERCIZIO 6
 # Determina se una tavola Sudoku 9 x 9 è valida. Solo le celle compilate devono essere convalidate secondo le seguenti regole:
 
 #     Ogni riga deve contenere le cifre 1-9 senza ripetizioni.
@@ -209,20 +232,37 @@ ESERCIZIO 6
 
 #     Una tavola Sudoku (parzialmente riempita) potrebbe essere valida ma non è necessariamente risolvibile.
 #     Solo le celle riempite devono essere convalidate secondo le regole menzionate.
-ESERCIZIO 7
+
+
+
+#ESERCIZIO 7
 # Date due stringhe s e t, restituire True se t è un anagramma di s, e False altrimenti.
 
-# Un anagramma è una parola o una frase formata riorganizzando le lettere di una parola o frase diversa, in genere utilizzando tutte le lettere originali esattamente una volta.
+# Un anagramma è una parola o una frase formata riorganizzando le lettere di una parola o frase diversa,
+# in genere utilizzando tutte le lettere originali esattamente una volta.
 
 # For example:
 # Test 	Result
 
 # print(anagram("anagram","nagaram"))
-
-	
+# def anagram(parola:str, anagramma:str):
+#     parolazza = ""
+#     for i in parola:
+#         if i in anagramma:
+#             parolazza += i
+#         else:
+#             continue
+#     if parolazza == parola:
+#         return True
+#     else:
+#         return False
+# print(anagram("ciao","oiiiac"))
+def anagram(parola:str, anagramma:str):
+    return sorted(parola)==sorted(anagramma) 
+print(anagram("ciao","oiac"))
 
 # True
-ESERCIZIO BANCA
+#ESERCIZIO BANCA
 # Progettare un semplice sistema bancario con i seguenti requisiti:
 
 #     Classe del Account:
@@ -239,6 +279,34 @@ ESERCIZIO BANCA
 #             create_account(account_id): crea un nuovo account con l'ID specificato e un saldo pari a 0.
 #             deposit(account_id, amount): deposita l'importo specificato sul conto con l'ID fornito.
 #             get_balance(account_id): restituisce il saldo del conto con l'ID specificato.
+
+class Account:
+    def __init__(self, account_id: str, balance: float) -> None:
+        self.account_id = account_id
+        self.balance = balance
+
+    def deposit(self, amount:float):
+        self.balance += amount
+    def get_balance(self):
+        return self.balance
+
+class Bank:
+    def __init__(self) -> None:
+         self.account = {}
+
+    def create_account(self, account_id):
+        self.account[account_id] = Account(account_id,balance=0)
+        
+    def deposit(self, account_id, amount):
+        for i in self.account:
+            if i[account_id] == account_id:
+                
+            
+
+
+
+
+
 
 # For example:
 # Test 	Result
