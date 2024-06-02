@@ -10,7 +10,7 @@ class OperazioneBinaria(Operazione):
         super().__init__(operando)
         self.arg1 = arg1
         self.arg2 = arg2
-    #stiamo aggiungendo attributi alla sottoclasse operazionebinaria che prende l'attributo operando della superclasse
+    #stiamo aggiungendo metodi alla sottoclasse operazionebinaria che prende l'attributo operando della superclasse
     def set_arg1(self,arg1): #setter
         self.arg1 = arg1
 
