@@ -228,7 +228,7 @@ class Specie:
                 else:
                     continue          
         else:
-            raise ValueError("Sono passati mille anni")
+            print("Sono passati mille anni")
 
     def getDensita(self, area_kmq: float):
         self.popolazione / area_kmq
@@ -242,7 +242,7 @@ class Specie:
                 else:
                     continue
         else:
-            raise ValueError("Sono passati mille anni")
+            print("Sono passati mille anni")
 
     
         
@@ -270,17 +270,6 @@ class Elefante(Specie):
 
 # Entrambe le sottoclassi animali BufaloKlingon ed Elefante devono ereditare dalla classe base Specie e 
 # devono inizializzare il nome della specie rispettiva.
-
-class BufaloKlingon(Specie):
-    def __init__(self, nome: str, popolazione: int, tasso_crescita: float):
-        super().__init__(nome, popolazione, tasso_crescita)
-        self.nome = "Bufalo Klingon"
-
-class Elefante(Specie):
-    def __init__(self, nome: str, popolazione: int, tasso_crescita: float):
-        super().__init__(nome, popolazione, tasso_crescita)
-        self.nome = "Elefante"
- 
 # Formule Matematiche:
 # Aggiornamento della popolazione per l'anno successivo:
 # Formula: popolazione_nuova = popolazione_attuale x (1 + tasso_crescita/100)
