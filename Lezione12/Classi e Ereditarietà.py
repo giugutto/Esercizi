@@ -207,60 +207,45 @@ class Moto(Veicolo):
 # getDensita(self, area_kmq: float) -> int: 
 # Metodo per calcolare in quanti anni la popolazione raggiungerà una densità di 1 individuo per km².
 class Specie:
-    def __init__(self,popolazione: int, tasso_crescita: float):
-        self.nome = ""
+    def __init__(self,nome, popolazione: int, tasso_crescita: float):
+        self.nome = nome
         self.popolazione = popolazione
         self.tasso_crescita = tasso_crescita
 
     def cresci(self):
-        popolazione_nuova = self.popolazione * (1 + self.tasso_crescita/100)
-        return popolazione_nuova
+        self.popolazione = (self.popolazione * (1 + self.tasso_crescita/100))//1
+        
 
     def anni_per_superare(self, altra_specie:'Specie')-> int:
         variabilecontatore = 0
-        if variabilecontatore <= 1000:
-            while self.popolazione <= altra_specie.popolazione:
-                self.popolazione = 1 + self.tasso_crescita/100
-                altra_specie.popolazione = 1 + self.tasso_crescita/100
-                variabilecontatore +=1
-                if self.popolazione > altra_specie.popolazione:
-                    print(f"Ci ha messo {variabilecontatore} anni per crescere")
-                else:
-                    continue          
-        else:
-            print("Sono passati mille anni")
+        while variabilecontatore < 1000 and self.popolazione < altra_specie.popolazione:
+            self.cresci()
+            altra_specie.cresci()
+            variabilecontatore +=1
+        return variabilecontatore    
+        
 
     def getDensita(self, area_kmq: float):
-        self.popolazione / area_kmq
         variabilecontatore =  0
-        if variabilecontatore <= 1000:
-            while True:
-                self.popolazione += self.popolazione / area_kmq
-                variabilecontatore += 1
-                if self.popolazione == 1:
-                    print("Ha raggiunto 1 individuo per km")
-                else:
-                    continue
-        else:
-            print("Sono passati mille anni")
+        while variabilecontatore <= 1000 and self.popolazione / area_kmq < 1:
+            self.cresci()
+            variabilecontatore += 1            
+        return variabilecontatore
 
     
         
 class BufaloKlingon(Specie):
     def __init__(self,popolazione: int, tasso_crescita: float):
-        super().__init__(popolazione, tasso_crescita)
-        self.nome = "Bufalo Klingon"
-        self.popolazione = popolazione
-        self.tasso_crescita = tasso_crescita
+        super().__init__("Bufalo Klingon", popolazione, tasso_crescita)
+
 
 class Elefante(Specie):
     def __init__(self, popolazione: int, tasso_crescita: float):
-        super().__init__(popolazione, tasso_crescita)
-        self.nome = "Elefante"
-        self.popolazione = popolazione
-        self.tasso = tasso_crescita
+        super().__init__("Elefante",popolazione, tasso_crescita)
+        
 
-    
+
+
         
 
 
