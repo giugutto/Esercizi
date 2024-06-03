@@ -279,7 +279,7 @@ class Person(ABC):
         self.age = age
 
     @abstractmethod
-    def get_roll(self):
+    def get_role(self):
         pass
 
     def __str__(self):
@@ -301,8 +301,8 @@ class Student(Person):
     def enroll(self, course):
         self.courses.append(course)
 
-    def get_roll(self):
-        print("professor",self)
+    def get_role(self):
+        print("student",self)
     
 
 # Professor:
@@ -319,10 +319,12 @@ class Professor(Person):
     def assign_to_course(self, course):
         self.courses.append(course)
 
-    def get_roll(self):
-        print("student",self)
+    def get_role(self):
+        print("professor",self)
 
-    
+    def __str__(self):
+        return super().__str__() + self.professor_id
+        
 # Create a class Course:
 # Attributes:
 
@@ -351,7 +353,7 @@ class Course:
         self.professor = professor
     
     def __str__(self) -> str:
-        return (f"{self.course_name},{self.course_code},{self.students},{self.professor}")
+        return (f"{self.course_name},{self.course_code},{[str(x) for x in self.students]},{self.professor}")
 
 
 
@@ -377,12 +379,12 @@ class Department:
         self.professor: list[Professor] = []
 
     def add_course(self, course:Course):
-        self.courses = course
+        self.courses.append(course)
 
     def add_professor(self,professor:Professor):
-        self.professor = professor
+        self.professor.append(professor)
     def __str__(self):
-        return (f"{self.department},{self.courses}, {self.professor}")
+        return (f"{self.department},{[str(x) for x in self.courses]},{[str(x) for x in self.professor]}")
         
 # Create a class University:
 
@@ -404,6 +406,7 @@ class University:
         self.name = name
         self.departments: list[Department] = []
         self.students: list[Student] = []
+
     def add_department(self, department: Department):
         self.departments.append(department)
 
