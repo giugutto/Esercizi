@@ -1,0 +1,7 @@
+print(symmetric([1,2,2,3,4,4,3]))
+
+print(symmetric([1,2,2,None,2,2,1]))
+
+print(symmetric([1,2,2,None,3,3,None]))
+
+print(symmetric([1,2,4,3,None,None,3]))
