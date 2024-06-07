@@ -210,8 +210,7 @@ Metodi:
 stampando il titolo, il voto medio, il giudizio e le percentuali di ciascun voto. '''
 
 class Media:
-    def __init__(self, title: str) -> None:
-        self.title = title
+    def __init__(self):
         self.reviews: list[int] = []
 
 
@@ -224,9 +223,46 @@ class Media:
     def aggiungi_valutazione(self, voto):
         self.reviews.append(voto)
         
+    def getMedia(self):
+        addizione_voti = 0
+        for voto in self.reviews:
+            addizione_voti += voto
+        media = addizione_voti / len(self.reviews)
+        return media
     
+    def getRate(self):
+        giudizio = ''
+        if self.getMedia() == 1:
+            giudizio += 'Film pessimo'
+        elif self.getMedia() == 2:
+            giudizio += 'Film da migliorare con tanti difetti'
+        elif self.getMedia() == 3:
+            giudizio += 'Film con recensioni nella media, nulla di eccezionale'    
+        elif self.getMedia() == 4:
+            giudizio += 'Belm film'
+        elif self.getMedia() == 5:
+            giudizio += 'Film stupendo'
+        return giudizio
+    
+    def ratePercentage(self, voto): 
+        contatorevoto = 0
+        for i in self.reviews:
+            if i == voto:
+                contatorevoto += 1
+        percentuale = len(self.reviews) * contatorevoto / 100
+        return percentuale
+    
+    def recensione(self):
+        print(f"Titolo del film: {self.title}/n Voto medio:{self.getMedia()},/n Giudizio:{self.getRate()}, /n Terribile: {self.ratePercentage()}, /n Brutto: {self.ratePercentage()} /n Normale: {self.ratePercentage()} /n Bello: {self.ratePercentage()} /n Grandioso: {self.ratePercentage()}")
+              
+class Film(Media):
+    def __init__(self):
+        super().__init__()
 
-Esempio di riassunto: 
+
+#recensione(self): Mostra un riassunto delle recensioni e delle valutazioni del media, 
+#stampando il titolo, il voto medio, il giudizio e le percentuali di ciascun voto
+''' Esempio di riassunto: 
 Titolo del Film: The Shawshank Redemption
 Voto Medio: 3.80
 Giudizio: Bello
