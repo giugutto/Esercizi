@@ -1,4 +1,5 @@
 from Film import Film 
+from MovieGenre import Azione,Drama,Commedia
 # In un file "noleggio.py", creare una classe Noleggio.
 # Questa classe deve avere come attributi una lista di film contenuti in negozio (film_list), un dizionario (rented_film) che ha come chiave un numero intero rappresentante l'id del cliente che ha affittato il film e per valore una lista contenente i film affittati dal cliente.
 class Noleggio:
@@ -9,6 +10,30 @@ class Noleggio:
         self.negozio = list[Film]
     def is_available(self, film: Film):
         if film in self.negozio:
+            print(f"Il film scelto è disponibile: {film.__titolo}!")
+            return True
+        else:
+            print(f"Il fim scelto non è disponibile: {film.__titolo}")
+            return False
+    def rentAMovie(self, film: Film, client_id):
+        if film in self.film_list:
+            self.film_list.remove(film)
+            self.rented_film[client_id] = self.rented_film.append(film)
+
+    def giveBack(self, film:Film, clientID: 'Noleggio', days):
+        clientID.rented_film.remove(film)
+        self.negozio.append(film)
+        penale = s
+
+    def printMovies(self):
+        for i in self.negozio:
+            print(f"{i.getTitle()} - {i.}")
+
+    def printRentMovies(self,ClientID: 'Noleggio'):
+        print(f"{ClientID.rented_film}")
+
+# printRentMovies(clientID): questo metodo deve stampare la lista dei film noleggiati dal cliente di cui viene specificato l'id.
+
             
 
 
