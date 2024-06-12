@@ -20,18 +20,18 @@ class Noleggio:
         if film in self.film_list:
             self.film_list.remove(film)
             self.rented_film[client_id].append(film)
-            
+            print(f"Il cliente {client_id} ha noleggiato {film.__titolo}!")
         else:
+            print(f"Non è possibile nolegiare il film {film.__titolo}!")
 
-
-    def giveBack(self, film:Film, clientID: 'Noleggio', days):
-        clientID.rented_film.remove(film)
+    def giveBack(self, film:Film, clientID, days):
+        self.rented_film[clientID].remove(film)
         self.negozio.append(film)
-        penale = s
+        penale = self.getPenale(days)
 
     def printMovies(self):
         for i in self.negozio:
-            print(f"{i.getTitle()} - {i.}")
+            print(f"{i.getTitle()} - {i.getGenerale()}")
 
     def printRentMovies(self,ClientID: 'Noleggio'):
         print(f"{ClientID.rented_film}")
