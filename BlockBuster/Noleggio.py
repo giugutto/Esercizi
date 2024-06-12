@@ -3,10 +3,9 @@ from MovieGenre import Azione,Drama,Commedia
 # In un file "noleggio.py", creare una classe Noleggio.
 # Questa classe deve avere come attributi una lista di film contenuti in negozio (film_list), un dizionario (rented_film) che ha come chiave un numero intero rappresentante l'id del cliente che ha affittato il film e per valore una lista contenente i film affittati dal cliente.
 class Noleggio:
-    def __init__(self, film_list, client_id: int, ):
+    def __init__(self, film_list,):
         self.film_list: list[Film] = film_list
         self.rented_film: dict = {}
-        self.client_id = client_id
         self.negozio = list[Film]
     def is_available(self, film: Film):
         if film in self.negozio:
@@ -16,9 +15,14 @@ class Noleggio:
             print(f"Il fim scelto non è disponibile: {film.__titolo}")
             return False
     def rentAMovie(self, film: Film, client_id):
+        try: self.rented_film[client_id]
+        except: self.rented_film[client_id] = []
         if film in self.film_list:
             self.film_list.remove(film)
-            self.rented_film[client_id] = self.rented_film.append(film)
+            self.rented_film[client_id].append(film)
+            
+        else:
+
 
     def giveBack(self, film:Film, clientID: 'Noleggio', days):
         clientID.rented_film.remove(film)
