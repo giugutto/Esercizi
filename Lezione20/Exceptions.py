@@ -13,7 +13,55 @@ print(safe_sqrt(-8))
 
     #2 Password Validation: Write a function validate_password(password) that checks if a password meets certain criteria (i.e., minimum length of 20 characters, at least three uppercase characters, and at least four special characters).  Raise a custom exception (e.g., InvalidPasswordError) for invalid passwords.
 
-#def validate_password(password):
+
+
+def validate_password(password):
+    
+    lunghezza = 0
+    maiuscolo = 0
+    specialicounter = 0
+        
+    for i in password:
+        lunghezza += 1
+        
+
+    v_lista: list = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+        
+    while maiuscolo < 3:
+        for i in v_lista:
+            if i in password:
+                maiuscolo += 1
+            else:
+                continue
+        
+        
+    special: list = ['!', '"', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[',  ']', '_', '`', '{', '|', '}', '~']
+    
+    for i in special:
+        if i in password:
+            specialicounter += 1
+        if specialicounter == 4:
+            break
+            
+        
+
+    
+    if lunghezza < 20:
+        raise ValueError("La password deve essere lunga ale")
+    elif maiuscolo < 3:
+        raise ValueError("La password deve contenere almeno 3 lettere maiuscole")
+    elif specialicounter < 4:
+        raise ValueError("La password deve contenere almeno 4 caratteri speciali")
+    else:
+        return "La password è valida"
+    
+class InvalidPasswordError(Exception):
+    pass
+
+
+print(validate_password("ksfnjsiopfJsoimjfsmdfSmfdk"))
+
+
 
     #3 Context Managers for File Handling: Use the with statement and context managers to open and close a file. Handle potential IOError within the with block for clean resource management.
 
