@@ -1,5 +1,5 @@
 import math
-    
+
 #1 Safe Square Root: Write a function safe_sqrt(number) that calculates the square root of a number using math.sqrt(). Handle ValueError if the input is negative by returning an informative message.
 def safe_sqrt(number):
     try:
@@ -133,28 +133,28 @@ try:
     def interactive_calculator(first_number:int, sign, second_number):
         add = '+'
         less = '-'
-        lista_numeri= []
         if first_number and sign and second_number:
-            ris = first_number + sign + second_number
-            risplit = ris.split()
-            if type(risplit) == list:
-                lista_numeri.append(risplit[0])
-                lista_numeri.append(risplit[2])
-                
-                formula = risplit[1].join(lista_numeri)
-                print(formula)
-
+           x = float(first_number.replace('""', ' '))
+           y = float(second_number.replace('""', ' '))
+           if sign == add:
+            return(x + y)
+           else:
+               if x < y:
+                    raise FormulaError('Exception occurred: Operazione invalida')
+                       
+               else:
+                   return(x - y)
         elif not first_number or sign or second_number:
-            raise FormulaError
+            raise FormulaError('Exception occurred: Operazione invalida')
         elif sign is not add or less:
-            raise FormulaError
+            raise FormulaError('Exception occurred: Operazione invalida') 
         
         
     
 except FormulaError:
-    print("Exception occurred: Invalid Age")
+    print("Exception occurred: Operazione invalida")
 
-interactive_calculator("3 ","+"," 3")
+print(interactive_calculator("1 ","-"," 3"))
 
  #6 Personalized math library: Create a Python library that provides functions for handling fractions, with built-in error handling. The library must include functions for the following operations:
  #     Create a fraction from the numerator and denominator.
