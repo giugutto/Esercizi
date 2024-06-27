@@ -1,0 +1,66 @@
+# Implement a last-in-first-out (LIFO) stack using only two queues. 
+# The implemented stack should support all the functions of a normal stack (push, top, pop, and empty).
+
+# Implement the MyStack class:
+
+# - push(x: int) -> None: Pushes element x to the top of the stack.
+# - pop() -> None Removes the element on the top of the stack and returns it.
+# - pop() -> None Returns the element on the top of the stack.
+# - empty() -> None Returns true if the stack is empty, false otherwise.
+
+
+
+class MyStack:
+    def __init__(self) -> None:
+        self.queue1 = []
+        self.queue2 = []
+
+    def isempty(stack):
+        return len(stack) == 0
+        
+    def push(self, item):
+        self.queue1.append
+        self.queue2.append(item)
+        while len(self.queue1) > 0:
+            self.queue2.append(self.queue1.pop())
+
+    def pop(self):
+        return self.queue2.pop()
+    
+    def empty(self):
+        return len(self.queue2) == 0
+    
+    def top(self):
+        return self.queue2[-1]
+
+# Given a string s which consists of lowercase or uppercase letters,
+# write a function that returns the length of the longest palindrome that can be built with those letters. 
+# Letters are case sensitive, for example, "Aa" is not considered a palindrome here.
+
+def longest_palindrome(s: str) -> int:
+    count=[s.count(l) for l in set(s)]
+    lenght=0
+    for v in count:
+        if v%2==0:
+            lenght+=v
+            count[count.index(v)]=0
+        else:lista_caratttermine if the input string is valid.
+
+# An input string is valid if: 
+
+#     Open brackets must be closed by the same type of brackets.
+#     Open brackets must be closed in the correct order.
+#     Every close bracket has a corresponding open bracket of the same type.
+
+
+def is_valid_parenthesis(s: str) -> bool:
+    lista_caratteri = ['(', ')', '{', '}', '[',']']
+
+    for i in s:
+        if i in lista_caratteri and lista_caratteri.index(i) + 1
+        
+
+
+
+        
+        
