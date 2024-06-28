@@ -44,7 +44,14 @@ def longest_palindrome(s: str) -> int:
         if v%2==0:
             lenght+=v
             count[count.index(v)]=0
-        else:lista_caratttermine if the input string is valid.
+        else:
+            lenght+=v-1
+            count[count.index(v)]=v-(v-1)
+    return lenght if 1 not in count else lenght+1
+            
+            
+            
+
 
 # An input string is valid if: 
 
@@ -54,12 +61,52 @@ def longest_palindrome(s: str) -> int:
 
 
 def is_valid_parenthesis(s: str) -> bool:
-    lista_caratteri = ['(', ')', '{', '}', '[',']']
+    if s=='':
+        return True
+    elif s=='()' or s=='[]' or s=='{}':
+        return True
+    elif len(s)==2 and (s!='()' or s!='[]' or s!='{}'):
+        return False
+    else:
+        s=[i for i in s]
+        for r in range(len(s)-1):
+            if s[r]+s[r+1]=='()' or s[r]+s[r+1]=='[]' or s[r]+s[r+1]=='{}':
+                s.pop(r), s.pop(r)
+                return is_valid_parenthesis(''.join(s))
+    return False
 
-    for i in s:
-        if i in lista_caratteri and lista_caratteri.index(i) + 1
+#print(is_valid_parenthesis('(]'))
+
+# You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively. Write a function to merge nums1 and nums2 into a single array sorted in non-decreasing order.
+
+# The final sorted array should not be returned by the function, but instead be stored inside the array nums1. To accommodate this, nums1 has a length of m + n, where the first m elements denote the elements that should be merged, and the last n elements are set to 0 and should be ignored. nums2 has a length of n.
         
 
+nums1 = [0]
+nums2 = [1]
+m=0
+n=1
+
+def merge(nums1, m, nums2, n):
+    if m ==1 and n == 0:
+        return nums2
+    if m == 0 and n == 1:
+        nums1 = 1
+        return nums1
+    else:
+     array = nums1
+     array[3] = nums2[0]
+     array[4] = nums2[1]
+     array[5] = nums2[2]
+     array1 = array.sort()
+     return array1
+    
+print(merge(nums1,m,nums2,n))
+#soluzione
+def merge(nums1, m, nums2, n):
+    for i in range(n):
+        nums1[m+i] =nums2[i]
+    nums1.sort()
 
 
         
