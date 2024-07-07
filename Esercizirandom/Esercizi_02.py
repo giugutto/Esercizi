@@ -77,8 +77,8 @@ def caesar_cypher(string: str, offset: int, decrypt: bool = False) -> str:
         x = ord(i) + offset
         risultato += x
 
-    ciclo for, ogni lettere in stringa e convertirlo in ord e appendere al risultato chr8ord + offset 
-    e se c'è il 122 ritornare ad a 97 
+    # ciclo for, ogni lettere in stringa e convertirlo in ord e appendere al risultato chr8ord + offset 
+    # e se c'è il 122 ritornare ad a 97 
 
 print(caesar_cypher("prova ciao come va tutto ok",2))
 #abc diventa def se lo shifti di 3
@@ -97,5 +97,51 @@ print(caesar_cypher("prova ciao come va tutto ok",2))
 # # - La password non è valida se contiene caratteri diversi da quelli specificati sopra
 # #   o se viola una delle regole specificate.
 # # La funzione restituisce true/false a seconda se la password sia valida o meno.
-# def check_pwd(pwd: str) -> bool:
-#     pass
+def check_pwd(pwd: str) -> bool:
+    lettere_minuscole = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    lettere_maiuscole = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    numbers = ['0','1','2','3','4','5','6','7','8','9']
+    caratteri = ['$','#','@']
+    password_valida = []
+    v_contatore_minuscole = []
+    v_contatore_maiuscole = []
+    v_contatore_numeri = []
+    v_contatore_caratteri = []
+    for lettera in pwd:
+        if lettera not in lettere_minuscole:
+            continue
+        else:
+           v_contatore_minuscole.append(lettera)
+    print(v_contatore_minuscole)
+    for lettera in pwd:        
+        if lettera not in lettere_maiuscole:
+            continue
+        else:
+            v_contatore_maiuscole.append(lettera)
+    for lettera in pwd:
+        if lettera not in numbers:
+            continue
+        else:
+            v_contatore_numeri.append(lettera)
+    for lettera in pwd:
+        if lettera not in caratteri:
+            continue
+        else:
+            v_contatore_caratteri.append(lettera)
+        
+    if len(v_contatore_caratteri) < 1: 
+        return False
+    if len(v_contatore_maiuscole) <1:
+        return False
+    if len(v_contatore_minuscole) < 1:
+        return False
+    if len(v_contatore_numeri) < 1:
+        return False
+    if len(pwd) > 16:
+        return False
+    elif len(pwd) < 6:
+        return False
+    elif 6 <= len(pwd) <= 16:
+        return True
+    
+print(check_pwd('cH45oP'))
