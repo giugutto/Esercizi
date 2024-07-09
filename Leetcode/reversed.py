@@ -62,4 +62,12 @@ class Solutions:
 
 x = Solutions()
 print(x.reverse(-456))
+###########################
     
+class Solution:
+    def myPow(self, x: float, n: int) -> float:
+        return x ** n 
+
+
+potenza = Solution()
+print(potenza.myPow(2.00000,10))

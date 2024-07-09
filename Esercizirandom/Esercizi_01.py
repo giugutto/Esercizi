@@ -177,3 +177,76 @@ def saluto(nome):
     return (f"ciao {nome} buonagiornata!")
 
 print(saluto("Peppe"))
+
+class Morte:
+    def __init__(self,persona:str,eta:int):
+        self.persona = persona
+        self.eta = eta
+    
+    def sotterra(self):
+        print(f"{self.persona} è stata sotterrata!")
+
+
+persona1 = Morte("Giuseppe", 27)
+
+persona1.sotterra()
+
+#Creare una tupla contenente il quadrato dei numeri interi da 1 a 5.
+tupla = tuple(i ** 2 for i in range(1,6))
+print(tupla)
+
+
+#Contare il numero di occorrenze dell'elemento "mela" nella tupla precedente.
+
+tuplazza = ("mela", "mela", "banana", "mela", "arancia")
+occorrenze = 0
+for x in tuplazza:
+    if x == "mela":
+        occorrenze += 1
+
+print(tuplazza, occorrenze)
+
+ciccio = ["ci","pas","tre","bibo"]
+for i in range(1, len(ciccio)):
+    print(i)
+
+# Modifica la classe Auto in modo che erediti anche il metodo __str__() dalla classe Veicolo, in modo da stampare le informazioni sull’auto in questo formato: “Marca: Ferrari, Modello: Enzo, Anno: 2004, Colore: Rosso”.
+class Auto:
+    def __init__(self, marca: str, modello: str, anno: int, colore: str):
+        self.marca = marca
+        self.modello = modello
+        self.anno = anno
+        self.colore = colore
+    
+    def __str__(self):
+        return "you tried to access to to a memory address!"
+
+auto1 = Auto("Ferrari","Enzo", 2004,"Rosso")
+
+print(auto1)
+
+
+# Scrivi una classe Forma che abbia un metodo area() che calcoli l’area della forma. Poi crea le classi Quadrato e Cerchio che ereditino dalla classe Forma e che implementino il metodo area() in modo appropriato per ogni forma. Utilizza le classi create per creare un quadrato e un cerchio, quindi stampa l’area di ognuno di essi.
+
+class Forma:
+    def __init__(self, lato):
+        self.lato = lato
+    def area(self):
+        return self.lato ** 2
+    
+class Quadrato(Forma):
+    def __init__(self, lato):
+        super().__init__(lato)
+#in questo caso ha ereditato solo il metodo area, dato che l'attributo
+#lato lo abbiamo levato e si è messo il raggio al posto di quello
+import math
+class Cerchio(Forma):
+    def __init__(self, raggio):
+        self.raggio = raggio
+
+    def area(self):
+        return math.pi * self.raggio ** 2
+
+quadrato = Quadrato(5)
+print(quadrato.area())
+

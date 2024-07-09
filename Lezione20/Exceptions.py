@@ -58,7 +58,7 @@ class InvalidPasswordError(Exception):
     pass
 
 
-#print(validate_password("ksfnjsiopfJsoimjfsmdfSmfdk"))
+print(validate_password("ksfnjsiopfJsoimjfsmdfSmfdk"))
 
 #######################################################################################################################
 
