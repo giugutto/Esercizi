@@ -84,9 +84,22 @@ Percorso: nomePercorso/document.txt
 Contenuto: Questo e' il contenuto del file.'''
 
 class File(Documento):
-    def __init__(self, testo: str, nome_percorso: str):
+    def __init__(self,testo: str, nome_percorso: str):
         super().__init__(testo)
+        self.nome_percorso = nome_percorso
+    def getTesto(self) -> str:
+        return super().getText()
+    
+    def leggiTestodaFile(self):
+        with open(self.nome_percorso,"r") as contenuto:
+            self.testo = contenuto.read()
+    def getText(self):
+        return f"Percorso: {self.nome_percorso}\n Contenuto: {self.getTesto()}"
+    
 
+file1 = File("caio e semptiono",r"C:\Users\Majinbu\Vscodeprojects\Esercizi\Lezione24\document.txt")
+file1.leggiTestodaFile()
+print(file1.getText())
 
 
 
@@ -108,7 +121,7 @@ class File(Documento):
 
 
 ### Test tramite codice driver:
-Creazione degli oggetti:
+'''Creazione degli oggetti:
 
     Email: Viene creato un oggetto Email con mittente, destinatario, oggetto e corpo del messaggio.
     File: Viene creato un oggetto File specificando il percorso di un file esistente.
