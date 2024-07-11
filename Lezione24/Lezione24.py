@@ -17,10 +17,10 @@ class Documento:
         else:
             return False
 
-doc1= Documento("Prova, Gabriele è proprio bello")
-print(doc1.getText())
-print(doc1.setText("Giuseppe è bello"))
-print(doc1.IsInText("bello"))
+# doc1= Documento("Prova, Gabriele è proprio bello")
+# print(doc1.getText())
+# print(doc1.setText("Giuseppe è bello"))
+# print(doc1.IsInText("bello"))
 
 
 '''Si definisca poi una classe Email che sia derivata da Documento e che includa le variabili per il mittente, il destinatario e il titolo del messaggio.
@@ -67,12 +67,12 @@ class Email(Documento):
         return f"Da: {self.mittente}, A: {self.destinatario} \n Titolo: {self.titolo_del_messaggio}, \n Messaggio:{self.getText()}"
 
  #RICORDA, quando ereditiamo un qualcosa se abbiamo un getter dobbiamo utilizzare il getter della classe da cui ereditiamo per prendere il messaggio!!!!!!!!!!!!!!!!!   
-email = Email("prova")
+# email = Email("prova")
 
-email.set_mittente("Gabbo")
-email.set_destinario("Angelo")
-email.set_titolo_del_messaggio("Prova")
-print(email.get_all())
+# email.set_mittente("Gabbo")
+# email.set_destinario("Angelo")
+# email.set_titolo_del_messaggio("Prova")
+# print(email.get_all())
 
 '''Analogamente, si definisca una classe File che sia derivata da Documento e includa una variabile per il nomePercorso.
 Crea un file document.txt con all'interno la stringa "Questo e' il contenuto del file." e salvalo in una directory a tua scelta e che sarà indicata in nomePercorso.
@@ -97,22 +97,66 @@ class File(Documento):
         return f"Percorso: {self.nome_percorso}\n Contenuto: {self.getTesto()}"
     
 
-file1 = File("caio e semptiono",r"C:\Users\Majinbu\Vscodeprojects\Esercizi\Lezione24\document.txt")
-file1.leggiTestodaFile()
-print(file1.getText())
+# file1 = File("caio e semptiono",r"C:\Users\Majinbu\Vscodeprojects\Esercizi\Lezione24\document.txt")
+# file1.leggiTestodaFile()
+# print(file1.getText())
 
 
 
 
+n1 = 100
+n2 = 200
+count = 0
+matrice = []
 
+for i in range(n1):
+    raw = []
+    for j in range(n2):
+        count += 1
+        raw.append(count)
+    matrice.append(raw)
 
+print(count)
+matrice[i][j]
 
+count = 0
+i = 0
+j = 0
+while i < n1:
+    while j < n2:
+        count += 1
+        j += 1
+    i += 1
+    j = 0
 
+'''
+import random
+random.seed(0)
 
+lst = [random.random(0, 100000) for _ in range(n2)]
+print(lst) 
+max_val = 0
+for val in lst:
+    if val > max_val:
+        max_val = val
 
+print(max_val)
+#lista causali di interi tra 0 a 100000
 
+max_val = 0
+for i in range(len(lst)):
+    for j in range(len(lst)):
+        if i == j: continue
+        if lst[i] == lst[j]:
+            print("c'e un duplicato")
+    
+print(max_val)
+'''
+#vedere se c'è un duplicato su una lista
 
+ciao = {"piip":"bibbio"}
 
+print(ciao[1])
 
 
 
